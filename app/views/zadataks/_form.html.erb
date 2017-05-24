@@ -1,0 +1,25 @@
+<%= form_for(@zadatak) do |f| %>
+  <% if @zadatak.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@zadatak.errors.count, "error") %> prohibited this zadatak from being saved:</h2>
+
+      <ul>
+      <% @zadatak.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :problem %><br>
+    <%= f.text_field :problem %>
+  </div>
+  <div class="field">
+    <%= f.label :solution %><br>
+    <%= f.text_field :solution %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

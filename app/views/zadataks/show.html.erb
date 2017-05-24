@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Problem:</strong>
+  <%= @zadatak.problem %>
+</p>
+
+<p>
+  <strong>Solution:</strong>
+  <%= @zadatak.solution %>
+</p>
+
+<%= link_to 'Edit', edit_zadatak_path(@zadatak) %> |
+<%= link_to 'Back', zadataks_path %>

@@ -1,0 +1,1 @@
+json.partial! "zadataks/zadatak", zadatak: @zadatak

@@ -33,8 +33,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
-gem 'acts-as-taggable-on', '~> 4.0'
-
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'pg'
