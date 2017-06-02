@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :zadataks
   
   root "zadataks#index"
+  
+  get 'tags/:tag', to: 'zadataks#index', as: "tag"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

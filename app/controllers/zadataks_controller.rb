@@ -3,8 +3,13 @@ class ZadataksController < ApplicationController
 
   # GET /zadataks
   # GET /zadataks.json
+  
   def index
-    @zadataks = Zadatak.all
+    if params[:tag]
+      @zadataks = Zadatak.tagged_with(params[:tag])
+    else
+      @zadataks = Zadatak.all
+    end
   end
 
   # GET /zadataks/1
@@ -69,6 +74,6 @@ class ZadataksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def zadatak_params
-      params.require(:zadatak).permit(:problem, :solution)
+      params.require(:zadatak).permit(:problem, :solution, :all_tags)
     end
 end
