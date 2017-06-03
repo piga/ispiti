@@ -4,7 +4,8 @@
 
 <%= form_tag zadataks_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :tag, params[:tag] %>
+    <%= text_field_tag :tag, nil, {"data-autocomplete-source": Tag.order(:name).map(&:name)} %>
+    
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
