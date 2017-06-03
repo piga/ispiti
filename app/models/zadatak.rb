@@ -13,7 +13,11 @@ class Zadatak < ActiveRecord::Base
     end
     
     def self.tagged_with(name)
-      Tag.find_by_name!(name).zadataks
+      if name==""
+        Zadatak.all
+      else
+        Tag.find_by_name!(name).zadataks
+      end
       #Tag.find(:all, :conditions => ['name LIKE ?', "%#{name}%"]).zadataks
     end
     
