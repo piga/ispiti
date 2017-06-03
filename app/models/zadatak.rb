@@ -14,5 +14,8 @@ class Zadatak < ActiveRecord::Base
     
     def self.tagged_with(name)
       Tag.find_by_name!(name).zadataks
+      #Tag.find(:all, :conditions => ['name LIKE ?', "%#{name}%"]).zadataks
     end
+    
+
 end
