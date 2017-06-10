@@ -1,29 +1,17 @@
-<%= form_for(@zadatak) do |f| %>
-  <% if @zadatak.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@zadatak.errors.count, "error") %> prohibited this zadatak from being saved:</h2>
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: @user %>
 
-      <ul>
-      <% @zadatak.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
 
-  <div class="field">
-    <%= f.label :problem %><br>
-    <%= f.text_field :problem %>
-  </div>
-  <div class="field">
-    <%= f.label :solution %><br>
-    <%= f.text_field :solution %>
-  </div>
-  <div class="field">
-    <%= f.label :all_tags %><br>
-    <%= f.text_field :all_tags %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
