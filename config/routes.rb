@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
 
   get 'sessions/new'
-
-  resources :zadataks
   
   root "zadataks#index"
   
@@ -16,7 +14,12 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
-  resources :users
+  resources :zadataks do
+    resources :comments
+  end
+  resources :users do
+    resources :comments
+  end
   
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
