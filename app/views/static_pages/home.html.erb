@@ -1,0 +1,9 @@
+<h1>Rješeni matematički zadatci s fakulteta </h1>
+<%= form_tag zadataks_path, :method => 'get', :autocomplete => 'on' do %>
+  <p>
+    <%= text_field_tag :tag, nil, {"data-autocomplete-source": Tag.order(:name).map(&:name).to_json} %>
+    
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
