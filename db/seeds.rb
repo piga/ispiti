@@ -26,6 +26,16 @@ User.create!(name:  "piga",
               activated_at: Time.zone.now)
 end
 
+#Zadataks
+# neki_tagovi = ['matrice', 'jednadžbe', 'pravci', 'parcijalna integracija']
+ 3.times do |i|
+     problem = i
+     solution = 'tu ide rješenje zadatka'
+     Zadatak.create(problem: problem, solution: solution)
+#     all_tags=()
+ end
+
+#Comments
 zadataks = Zadatak.order(:created_at).take(2)
 50.times do
   autor = Faker::Name.name

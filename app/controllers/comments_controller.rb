@@ -13,6 +13,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment= @zadatak.comments.find_by(id: params[:id])
+    if @comment
+        @comment.destroy
+        flash[:success] = "Micropost deleted"
+    else
+       flash[:danger] = 'No such comment or zadatak' 
+    end
+    redirect_to request.referrer || @zadatak
   end
 
   private
