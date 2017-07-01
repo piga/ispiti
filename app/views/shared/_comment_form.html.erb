@@ -1,0 +1,11 @@
+<h4>New Comment</h4>
+<%= form_for([@zadatak, @comment]) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :autor, placeholder: "Name" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new comment..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

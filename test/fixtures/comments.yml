@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  autor: MyString
   content: MyText
-  commentable_id: 
+  zadatak_id: 
 
 two:
+  autor: MyString
   content: MyText
-  commentable_id: 
+  zadatak_id: 

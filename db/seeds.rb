@@ -25,3 +25,10 @@ User.create!(name:  "piga",
               activated: true,
               activated_at: Time.zone.now)
 end
+
+zadataks = Zadatak.order(:created_at).take(2)
+50.times do
+  autor = Faker::Name.name
+  content = Faker::Lorem.sentence(5)
+  zadataks.each { |zadatak| zadatak.comments.create!(autor: autor, content: content) }
+end

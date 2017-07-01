@@ -15,6 +15,9 @@ class ZadataksController < ApplicationController
   # GET /zadataks/1
   # GET /zadataks/1.json
   def show
+    @zadatak = Zadatak.find(params[:id])
+    @comments = @zadatak.comments.paginate(page: params[:page])
+    @comment = @zadatak.comments.build
   end
 
   # GET /zadataks/new

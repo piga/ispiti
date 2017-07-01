@@ -1,7 +1,7 @@
 class Zadatak < ActiveRecord::Base
     has_many :taggings, dependent: :destroy
     has_many :tags, through: :taggings
-    has_many :comments, as: :commentable
+    has_many :comments, dependent: :destroy
     
     def all_tags=(names)
       self.tags = names.split(",").map do |name|

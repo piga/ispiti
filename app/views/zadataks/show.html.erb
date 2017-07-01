@@ -1,3 +1,5 @@
+<% provide(:title, 'Zadatak') %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,3 +14,17 @@
 
 <%= link_to 'Edit', edit_zadatak_path(@zadatak) %> |
 <%= link_to 'Back', zadataks_path %>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <% if @zadatak.comments.any? %>
+      <h3>Comments (<%= @zadatak.comments.count %>)</h3>
+      <ol class="comments">
+        <%= render @comments %>
+        <%= render 'shared/comment_form' %>
+      </ol>
+      <%= will_paginate @comments %>
+    <% end %>
+  </div>
+</div>

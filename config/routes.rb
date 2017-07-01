@@ -15,11 +15,9 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   resources :zadataks do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
-  resources :users do
-    resources :comments
-  end
+  resources :users
   
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
