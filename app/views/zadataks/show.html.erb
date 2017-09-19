@@ -22,7 +22,9 @@
       <h3>Comments (<%= @zadatak.comments.count %>)</h3>
       <ol class="comments">
         <%= render @comments %>
-        <%= render 'comments/comment_form' %>
+        <% if logged_in? %>
+          <%= render 'comments/comment_form' %>
+        <% end %>
       </ol>
       <%= will_paginate @comments %>
     <% end %>
