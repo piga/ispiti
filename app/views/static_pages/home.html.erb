@@ -1,41 +1,15 @@
-<h1>Rješeni matematički zadatci s fakulteta </h1>
-
-
 <div class="row">
-  <div class="col-lg-12">
-    <div class="input-group">
-        
-        <%= form_tag zadataks_path, :method => 'get', :autocomplete => 'on', class: "search" do %>
-            <p>
-                <%= text_field_tag :tag, nil, {"data-autocomplete-source": Tag.order(:name).map(&:name).to_json, "class": "form-control input-sm"} %>
-                    <span class="input-group-btn">
-                        <%= submit_tag "Search", :name => nil, class: "btn btn-default btn-sm" %>
-                    </span>
-                
-            </p>
-        <% end %>
-
-      
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
-
-<div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-      <input type="text" class="form-control" placeholder="Search for...">
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-    </div><!-- /input-group -->
+  <div class="col-lg-6 col-lg-offset-3">
+    <h1>Rješeni matematički zadatci s fakulteta </h1>
+    
+    <%= form_tag zadataks_path, :method => 'get', :autocomplete => 'on', class: "search" do %>
+      <div class="input-group">
+        <%= text_field_tag :tag, nil, {"data-autocomplete-source": Tag.order(:name).map(&:name).to_json, "class": "form-control", "placeholder": "Koja vrsta zadatka?"} %>
+        <span class="input-group-btn">
+          <%= submit_tag "Traži", :name => nil, class: "btn btn-default" %>
+        </span>
+      </div><!-- /input-group -->
+    <% end %>
   </div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
 
