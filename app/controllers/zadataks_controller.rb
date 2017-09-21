@@ -1,5 +1,7 @@
 class ZadataksController < ApplicationController
   before_action :set_zadatak, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new, :edit, :update, :destroy]
+  before_action :admin_user,     only: [:new, :edit, :update, :destroy]
 
   # GET /zadataks
   # GET /zadataks.json

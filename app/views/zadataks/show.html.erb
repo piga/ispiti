@@ -3,16 +3,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Problem:</strong>
   <%= @zadatak.problem %>
 </p>
 
 <p>
-  <strong>Solution:</strong>
+  <strong>Rjesenje:</strong>
   <%= @zadatak.solution %>
 </p>
 
-<%= link_to 'Edit', edit_zadatak_path(@zadatak) %> |
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Edit', edit_zadatak_path(@zadatak) %> |
+<% end %>
 <%= link_to 'Back', zadataks_path %>
 
 

@@ -27,8 +27,10 @@
         <td><%= zadatak.solution %></td>
         <td><%= raw tag_links(zadatak.all_tags) %></td>
         <td><%= link_to 'Show', zadatak %></td>
-        <td><%= link_to 'Edit', edit_zadatak_path(zadatak) %></td>
-        <td><%= link_to 'Destroy', zadatak, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_zadatak_path(zadatak) %></td>
+          <td><%= link_to 'Destroy', zadatak, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
