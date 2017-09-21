@@ -16,11 +16,13 @@
 <% end %>
 <%= link_to 'Back', zadataks_path %>
 
+<button type="button" class="btn btn-info" id="s-h-comments">
+  Comments (<%= @zadatak.comments.count %>)
+</button>
 
-<div class="row">
+<div class="row" id="comments">
   <div class="col-md-12">
     <% if @zadatak.comments.any? %>
-      <h3>Comments (<%= @zadatak.comments.count %>)</h3>
       <ol class="comments">
         <%= render @comments %>
         <% if logged_in? %>
