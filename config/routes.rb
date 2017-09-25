@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   
+  get 'zadataks/:zadatak_id/comments' => 'comments#show', as: :comments
+  
   mathjax 'mathjax'
 
   # The priority is based upon order of creation: first created -> highest priority.

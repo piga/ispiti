@@ -17,7 +17,6 @@ class ZadataksController < ApplicationController
   # GET /zadataks/1
   # GET /zadataks/1.json
   def show
-    @zadatak = Zadatak.find(params[:id])
     @comments = @zadatak.comments.paginate(page: params[:page])
     @comment = @zadatak.comments.build
   end
@@ -74,7 +73,11 @@ class ZadataksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_zadatak
-      @zadatak = Zadatak.find(params[:id])
+      if @zadatak = Zadatak.find_by(id: params[:id])
+        @zadatak
+      else
+        redirect_to '/'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -16,6 +16,8 @@
 <% end %>
 <%= link_to 'Back', zadataks_path %>
 
+<%= link_to "Comments (#{@zadatak.comments.count})", comments_path(@zadatak), id: "mojButton", class: "btn btn-info", remote: true%>
+
 <button type="button" class="btn btn-info" id="s-h-comments">
   Comments (<%= @zadatak.comments.count %>)
 </button>

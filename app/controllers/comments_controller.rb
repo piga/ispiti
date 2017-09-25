@@ -1,6 +1,14 @@
 class CommentsController < ApplicationController
 #  before_action :logged_in_user, only: [:create, :destroy]
-  before_action :find_zadatak, only: [:create, :destroy]
+  before_action :find_zadatak, only: [:show, :create, :destroy]
+
+  def show
+    @comments = @zadatak.comments
+    respond_to do |format|
+      format.html
+      format.json {render json: @comments}
+    end
+  end
 
   def create
     @comment = @zadatak.comments.build(comment_params)

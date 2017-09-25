@@ -6,4 +6,14 @@ jQuery ->
         source: $('#tag').data('autocomplete-source')
     $( "#s-h-comments" ).click ->
         $("#comments").toggle()
+    
+    #AJAX comments
+    $("#mojButton").on "click", ->
+        $.ajax $(this).attr('href'),
+            type: 'GET'
+            dataType: 'html'
+            error: (jqXHR, textStatus, errorThrown) ->
+                console.log "AJAX Error: #{textStatus}"
+            success: (data, textStatus, jqXHR) ->
+                $("#s-h-comments").after(data)
         
