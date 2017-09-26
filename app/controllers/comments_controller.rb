@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comments = @zadatak.comments
     respond_to do |format|
       format.html
-      format.json {render json: @comments}
+      format.js
     end
   end
 
