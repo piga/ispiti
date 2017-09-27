@@ -38,4 +38,6 @@
 
 <br>
 
-<%= link_to 'New Zadatak', new_zadatak_path %>
+<% if current_user && current_user.admin? %>
+  <%= link_to 'New Zadatak', new_zadatak_path %>
+<% end %>
