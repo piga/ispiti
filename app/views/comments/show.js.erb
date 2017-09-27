@@ -1,1 +1,6 @@
 $("#comments .col-md-12 .comments").prepend('<%=j render @comments %>');
+$("#s-h-comments").attr("href", "#").removeAttr("data-remote").on("click", function(e) {
+    e.preventDefault();
+    $("#comments").toggle();
+});
+        

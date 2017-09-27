@@ -4,7 +4,5 @@
 jQuery ->
     $('#tag').autocomplete
         source: $('#tag').data('autocomplete-source')
-    $( "#s-h-comments" ).click ->
-        $("#comments").toggle()
     
         
