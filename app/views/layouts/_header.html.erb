@@ -12,7 +12,11 @@
       
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" data-toggle="collapse" data-target="#myNavbar"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li>
+            <%= link_to signup_path, data: {toggle: "collapse", target: "#myNavbar"} do %>
+                <span class="glyphicon glyphicon-user"></span> Sign Up
+            <% end %>
+          </li>
           <% if !logged_in? %>         
           <li>
             <%= link_to login_path, remote: true, data: {toggle: "collapse", target: "#myNavbar"} do %>
