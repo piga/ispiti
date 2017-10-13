@@ -12,17 +12,19 @@
       
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %> 
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          <% else %>
           <li>
             <%= link_to signup_path, remote: true, data: {toggle: "collapse", target: "#myNavbar"} do %>
                 <span class="glyphicon glyphicon-user"></span> Sign Up
             <% end %>
           </li>
-          <% if !logged_in? %>         
           <li>
             <%= link_to login_path, remote: true, data: {toggle: "collapse", target: "#myNavbar"} do %>
                 <span class="glyphicon glyphicon-log-in"></span> Login
             <% end %>
-          </li>
+          </li> 
           <% end %>        
         </ul>
       </div>
