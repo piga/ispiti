@@ -16,12 +16,12 @@
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
           <% else %>
           <li>
-            <%= link_to signup_path, remote: true, data: {toggle: "collapse", target: "#myNavbar"} do %>
+            <%= link_to signup_path, data: {toggle: "collapse", target: "#myNavbar"} do %>
                 <span class="glyphicon glyphicon-user"></span> Sign Up
             <% end %>
           </li>
           <li>
-            <%= link_to login_path, remote: true, data: {toggle: "collapse", target: "#myNavbar"} do %>
+            <%= link_to login_path, data: {toggle: "collapse", target: "#myNavbar"} do %>
                 <span class="glyphicon glyphicon-log-in"></span> Login
             <% end %>
           </li> 
