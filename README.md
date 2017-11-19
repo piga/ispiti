@@ -25,3 +25,12 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
 
 WARRNING: Logirao sam se, napisao komentar na .../zadataks/4, odlogirao se, pritisnio tipku za nazad i mogao sam napisati novi komentar. Te nebi smio 
 moci.
+
+WARNING:       <%= content_tag :div, class: "checkbox" do %>
+        <%= f.label :remember_me do %>
+          <%= f.check_box :remember_me %>
+          <span>Remember me</span>
+        <% end %>
+      <% end %>
+      
+      You put this in session/new.html.erb

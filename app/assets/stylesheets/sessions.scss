@@ -12,6 +12,7 @@
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+  input[type='submit'] {margin-top: 10px;}
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -19,9 +20,6 @@
 }
 .form-signin .checkbox {
   font-weight: normal;
-  label {
-    text-indent: -20px;
-  }
 }
 .form-signin .form-control {
   position: relative;
