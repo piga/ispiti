@@ -21,3 +21,13 @@
   &:focus {z-index: 2;}
   }
 }
+
+@media screen and (max-width: 500px) {
+    #new_user {
+        margin-top: -20px;
+        .form-control {
+            font-size: 13px;
+            padding: 7px;
+        }
+    }
+}
