@@ -26,6 +26,17 @@ Rails.application.routes.draw do
   
   mathjax 'mathjax'
 
+  get 'questions/index'
+
+  get 'questions/show'
+
+  get 'questions/new'
+
+  get 'questions/create'
+
+  get 'questions/destroy'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

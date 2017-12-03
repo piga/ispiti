@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630173753) do
+ActiveRecord::Schema.define(version: 20171203154451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20170630173753) do
   end
 
   add_index "comments", ["zadatak_id", "created_at"], name: "index_comments_on_zadatak_id_and_created_at", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.text     "body"
+  end
+
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "zadatak_id"
@@ -67,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170630173753) do
   end
 
   add_foreign_key "comments", "zadataks"
+  add_foreign_key "questions", "users"
   add_foreign_key "taggings", "tags"
   add_foreign_key "taggings", "zadataks"
 end
