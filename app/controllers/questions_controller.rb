@@ -9,6 +9,10 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    @user = User.find_by(id: params[:id])
+    @user.questions.create(body: params[:question][:body])
+    Question.email_question(@user, params[:question][:body])
+    redirect_to @user
   end
 
   def destroy

@@ -26,15 +26,7 @@ Rails.application.routes.draw do
   
   mathjax 'mathjax'
 
-  get 'questions/index'
-
-  get 'questions/show'
-
-  get 'questions/new'
-
-  get 'questions/create'
-
-  get 'questions/destroy'
+  post ':id/questions/create' => 'questions#create', as: :create_question
 
 
   # The priority is based upon order of creation: first created -> highest priority.
