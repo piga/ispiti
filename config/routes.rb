@@ -23,8 +23,6 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   
   get 'zadataks/:zadatak_id/comments' => 'comments#show', as: :comments
-  
-  mathjax 'mathjax'
 
   post ':id/questions/create' => 'questions#create', as: :create_question
 

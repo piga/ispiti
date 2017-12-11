@@ -6,10 +6,10 @@
   <%= @zadatak.problem %>
 </p>
 
-<p>
-  <strong>Rjesenje:</strong>
-  <%= @zadatak.solution %>
-</p>
+<p>  <strong>Rjesenje:</strong>    </p>
+  
+<%= raw @zadatak.solution %>
+
 
 <% if current_user && current_user.admin? %>
   <%= link_to 'Edit', edit_zadatak_path(@zadatak) %> |
