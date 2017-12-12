@@ -23,8 +23,8 @@
   <tbody>
     <% @zadataks.each do |zadatak| %>
       <tr>
-        <td><%= zadatak.problem %></td>
-        <td><%= zadatak.solution %></td>
+        <td><%= raw zadatak.problem %></td>
+        <td><%= raw zadatak.solution %></td>
         <td><%= raw tag_links(zadatak.all_tags) %></td>
         <td><%= link_to 'Show', zadatak %></td>
         <% if current_user && current_user.admin? %>
