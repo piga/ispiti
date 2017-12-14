@@ -11,6 +11,17 @@
 <%= raw @zadatak.solution %>
 
 
+<% unless @zadatak.pictures.empty? %>
+  <% @zadatak.pictures.each do |pic| %>
+    <div class="thumbnail">
+      <%= image_tag pic.image.url %>
+      
+    </div>
+  <% end %>
+<% end %>
+
+
+
 <% if current_user && current_user.admin? %>
   <%= link_to 'Edit', edit_zadatak_path(@zadatak) %> |
 <% end %>

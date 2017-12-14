@@ -34,14 +34,22 @@ class ZadataksController < ApplicationController
   # POST /zadataks.json
   def create
     @zadatak = Zadatak.new(zadatak_params)
-
+    
     respond_to do |format|
       if @zadatak.save
-        format.html { redirect_to @zadatak, notice: 'Zadatak was successfully created.' }
-        format.json { render :show, status: :created, location: @zadatak }
-      else
-        format.html { render :new }
-        format.json { render json: @zadatak.errors, status: :unprocessable_entity }
+       
+        if params[:images]
+          #===== The magic is here ;)
+          params[:images].each { |image|
+            @zadatak.pictures.create(image: image)
+          }
+        end
+  
+          format.html { redirect_to @zadatak, notice: 'Zadatak was successfully created.' }
+          format.json { render :show, status: :created, location: @zadatak }
+        else
+          format.html { render :new }
+          format.json { render json: @zadatak.errors, status: :unprocessable_entity }
       end
     end
   end
