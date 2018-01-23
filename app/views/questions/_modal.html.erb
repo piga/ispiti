@@ -14,7 +14,8 @@
           <%= f.text_area :body, {'class': "form-control", 'rows': '4', 'maxlength': '200', 'placeholder': 'Najviše 200 znakova'} %>
         </div>
         <div class="modal-footer">
-          <%= f.submit %>
+          <!-- I should put  data-dismiss:"modal" as atribute in f.submit but it's not working-->
+          <%= f.submit class:"btn btn-default", value:"Pošalji" %>
         </div>
       </div>
   
