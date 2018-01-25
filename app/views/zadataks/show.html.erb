@@ -3,12 +3,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= raw @zadatak.problem %>
+  <%= @zadatak.problem %>
 </p>
 
-<p>  <strong>Rjesenje:</strong>    </p>
-  
-<%= raw @zadatak.solution %>
+<p>
+  <strong>Rješenje:</strong>    
+  <%= @zadatak.solution %>
+</p>
 
 
 <% unless @zadatak.pictures.empty? %>

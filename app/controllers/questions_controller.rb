@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   def create
     @user = User.find_by(id: params[:id])
     @user.questions.create(body: params[:question][:body])
-    Question.email_question(@user, params[:question][:body])
+    UserQuestion.email_question(@user, params[:question][:body]).deliver_later
     redirect_to @user
   end
 

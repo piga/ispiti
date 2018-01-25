@@ -21,9 +21,9 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Password reset"
   end
   
-  def send_question(user, question)
-    @user = user
-    @question = question
-    mail to: 'darkopmfst@gmail.com', subject: "#{user.name} - pitanje"
-  end
+  # def send_question(user, question)
+  #   @user = user
+  #   @question = question
+  #   mail to: 'darkopmfst@gmail.com', subject: "#{user.name} - pitanje"
+  # end
 end
