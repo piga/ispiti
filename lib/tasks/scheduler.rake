@@ -1,5 +1,5 @@
 desc "This task is called by the Heroku scheduler add-on to protect my app from idle! Pings PING_URL to keep a dyno alive"
-task :update_feed => :environment do
+task :dyno_ping => :environment do
   require "net/http"
   
   if ENV['PING_URL']
