@@ -90,6 +90,6 @@ class ZadataksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def zadatak_params
-      params.require(:zadatak).permit(:problem, :solution, :all_tags)
+      params.require(:zadatak).permit(:problem, :solution, :all_tags, :pictures)
     end
 end
