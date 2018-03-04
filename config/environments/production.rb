@@ -25,7 +25,7 @@ Rails.application.configure do
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
   
   #I added this 2 lines.
-  config.serve_static_assets = true
+
   config.static_cache_control = "public, max-age=2592000"
 
   # Compress JavaScripts and CSS.
