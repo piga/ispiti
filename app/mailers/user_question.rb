@@ -12,9 +12,14 @@ class UserQuestion < ApplicationMailer
   end
   
   #Maybe I should make self method insted.
-  def email_question(user, question)
+  def email_question(user, question, attac_name, attac)
     @user = user
     @question = question
+    if attac != ""
+    	attachments[attac_name] = File.read(attac)
+    end
+
     mail to: 'darkopmfst@gmail.com', subject: "#{user.name} - pitanje"
   end
-end
+	end
+

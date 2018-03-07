@@ -1,2 +1,32 @@
-<h1>Questions#new</h1>
-<p>Find me in app/views/questions/new.html.erb</p>
+<%= form_for(@question, url: create_question_path(@user), html: {multipart: true}) do |f| %>
+<div class="form-group">
+  <div id="pitanjeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Pitanje</h4>
+        </div>
+        
+  
+        <div class="modal-body">
+          <%= f.text_area :body, {'class': "form-control", 'rows': '4', 'maxlength': '200', 'placeholder': 'Najviše 200 znakova, a možete mi poslati i sliku zadatka.'} %>
+        </div>
+        <div class="modal-footer">
+          <!-- I should put  data-dismiss:"modal" as atribute in f.submit but it's not working-->
+					<!-- <button type="button" class="btn btn-default pull-left">
+						<span class="glyphicon glyphicon-paperclip"></span> 
+					</button>
+					<div class="btn btn-success fileinput-button avatar pull-left">
+
+           </div> -->
+					<%= f.file_field "attachment", class:"btn btn-default pull-left" %>
+          <%= f.submit class:"btn btn-info", value:"Pošalji" %>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+</div>
+<% end %>
