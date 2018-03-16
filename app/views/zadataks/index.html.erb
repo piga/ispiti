@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Zadataks</h1>
-
 <%= form_tag zadataks_path, :method => 'get', :autocomplete => 'on' do %>
   <p>
     <%= text_field_tag :tag, nil, {"data-autocomplete-source": Tag.order(:name).map(&:name).to_json} %>
@@ -10,31 +8,29 @@
   </p>
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Problem</th>
-      <th>Solution</th>
-      <th>Taggs</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ 
 
-  <tbody>
+<ul class="list-group list-group-flush">
     <% @zadataks.each do |zadatak| %>
-      <tr>
-        <td><%= raw zadatak.problem %></td>
-        <td><%= raw zadatak.solution %></td>
-        <td><%= raw tag_links(zadatak.all_tags) %></td>
-        <td><%= link_to 'Show', zadatak %></td>
+        <li class="list-group-item">
+            <p>
+                <%= raw zadatak.problem %>                
+            </p>       
+            <p>
+                       <%= link_to 'Show', zadatak %>
         <% if current_user && current_user.admin? %>
-          <td><%= link_to 'Edit', edit_zadatak_path(zadatak) %></td>
-          <td><%= link_to 'Destroy', zadatak, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+          <%= link_to 'Edit', edit_zadatak_path(zadatak) %>
+          <%= link_to 'Destroy', zadatak, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>              
+            </p>
+            <p>
+                <% zadatak.all_tags.split(",").each do |tag| %>
+                      <%= link_to tag.strip, tag_path(tag.strip), class:"label label-info" %>
+                <% end %>
+            </p>
+        </li>
     <% end %>
-  </tbody>
-</table>
+</ul>
 
 <br>
 
