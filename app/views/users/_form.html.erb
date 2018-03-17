@@ -1,6 +1,5 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <h2>Sign up</h2>
   
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control', autofocus: true %>

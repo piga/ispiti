@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'contacts/new', to: 'contacts#new', as: :contacts
+  post 'contacts/new', to: 'contacts#create'
+
   root 'static_pages#home'
 
   get 'password_resets/new'

@@ -1,19 +1,18 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path, html: {class: 'form-signin'}) do |f| %>
-      <h2 class="form-signin-heading">Log in</h2>
 
       <%= f.label :email, class: 'sr-only' %>
-      <%= f.email_field :email, class: 'form-control', placeholder: 'Email address', autofocus: true %>
+      <%= f.email_field :email, class: 'form-control', placeholder: 'Email adresa', autofocus: true %>
 
       <%= f.label :password, class: 'sr-only' %>
-      <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Lozinka' %>
       
-      <%= link_to "Forgot password", new_password_reset_path %>
+      <%= link_to "Zaboravio lozinku?", new_password_reset_path %>
 
-      <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block" %>
+      <%= f.submit "Prijava", class: "btn btn-lg btn-primary btn-block" %>
       
-      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+      <p>Nisi registriran? <%= link_to "Registriraj se!", signup_path %></p>
     <% end %>
   </div>
 </div>
