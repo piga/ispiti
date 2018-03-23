@@ -37,14 +37,6 @@ class ZadataksController < ApplicationController
     
     respond_to do |format|
       if @zadatak.save
-       
-        if params[:images]
-          #===== The magic is here ;)
-          params[:images].each { |image|
-            @zadatak.pictures.create(image: image)
-          }
-        end
-  
           format.html { redirect_to @zadatak, notice: 'Zadatak was successfully created.' }
           format.json { render :show, status: :created, location: @zadatak }
         else

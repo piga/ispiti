@@ -1,4 +1,4 @@
-<%= form_for @zadatak, :html => {multipart: true } do |f| %>
+<%= form_for(@zadatak) do |f| %>
   <%= f.label :problem %>
   <%= f.text_field :problem, class: 'form-control' %>
 
@@ -8,8 +8,5 @@
   <%= f.label :all_tags %>
   <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
   
-  <%= f.label :pictures %>
-  <%= file_field_tag "images[]", type: :file, multiple: true %>
-
   <%= f.submit 'New zadatak', class: "btn btn-primary" %>
 <% end %>
